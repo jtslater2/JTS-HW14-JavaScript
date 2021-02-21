@@ -31,6 +31,11 @@ var tbody = d3.select("tbody");
 
 tableData.forEach((view) => {
     var addrow = tbody.append("tr")
+    Object.entries(view).forEach((key, value)=> {
+        var cell = addrow.append("td");
+        cell.text(value);
+
+    });
     //console.log(row)
     
 
