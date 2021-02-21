@@ -31,7 +31,7 @@ var tbody = d3.select("tbody");
 
 tableData.forEach((view) => {
     var addrow = tbody.append("tr")
-    Object.entries(view).forEach((key, value)=> {
+    Object.entries(view).forEach(([key, value])=> {
         var cell = addrow.append("td");
         cell.text(value);
 
@@ -45,5 +45,34 @@ tableData.forEach((view) => {
 //Filter for the search
 var form = d3.select("form");
 var button = d3.select("#filter-btn");
+
+//button click - run and add error check(no match) at end
+button.on("click", buttonclick);
+
+
+function buttonclick() {
+
+     d3.event.preventDefault();
+    
+    
+    
+     tbody.html("");
+
+   
+
+    
+
+
+
+
+
+
+
+
+
+};
+
+
+
 
 
