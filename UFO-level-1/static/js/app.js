@@ -22,57 +22,61 @@ Object.entries(filt_md[0]).forEach(([key, value]) => {
 
 */
 // Read json
-var tableData = data;
-var columns = ["datetime", "city", "state", "country", "shape", "comments"];
-console.log(columns);
-console.log(tableData);
 
-var tbody = d3.select("tbody");
+    var tableData = data;
+    //var columns = ["datetime", "city", "state", "country", "shape", "comments"];
+    //console.log(columns);
+    console.log(tableData);
+    var tbody = d3.select("tbody");
 
-tableData.forEach((view) => {
-    var addrow = tbody.append("tr")
-    Object.entries(view).forEach(([key, value])=> {
-        var cell = addrow.append("td");
-        cell.text(value);
-
-    });
-    //console.log(row)
+function Createtable () {
     
+    tableData.forEach((view) => {
+        var addrow = tbody.append("tr")
+        Object.entries(view).forEach(([key, value])=> {
+            var cell = addrow.append("td");
+            cell.text(value);
 
-
-});
+        });
+        //console.log(row)
+    
+    console.log(tableData);
+    
+    }); };
 //console.log(row)
 //Filter for the search
-var form = d3.select("form");
+Createtable();
+//var form = d3.select("form");
+//var button = d3.select("#filter-btn");
+
+
+
 var button = d3.select("#filter-btn");
 
-//button click - run and add error check(no match) at end
-button.on("click", buttonclick);
+button.on("click", function(buttonclick) {
+    d3.event.preventDefault();
+    tbody.html("");
+
+    var inputElement = d3.select("#datetime"); 
+    var inputValue = inputElement.property("value");
+    console.log(inputElement);
+    console.log(inputValue);
 
 
-function buttonclick() {
+    var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+    filteredData.forEach(function(pickdate){
+        var row=tbody.append("tr");
+        Object.entries(pickdate).forEach(function([key,value]){
+        var cell=tbody.append("td");
+        cell.text(value);
+        });
+    });
+});
 
-     d3.event.preventDefault();
-    
-    
-    
-     tbody.html("");
-
-   
-
-    
-
-
-
-
-
-
-
-
-
-};
-
-
-
+var resetbutton = d3.select("#reset-btn");
+resetbutton.on("click",function(){
+    tbody.html("");
+    Createtable();
+});
 
 
