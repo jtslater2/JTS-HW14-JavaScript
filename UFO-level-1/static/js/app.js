@@ -1,34 +1,9 @@
-//var tableData = data;
-/*
-YOUR CODE HERE!
-Notes:
-
-read json
-forEach command to append list 
-
-
-div class is form-group
-ul class is list-group
-class is form-control  id is datetime
-
-button id is filter-btn
-
-Object.entries(filt_md[0]).forEach(([key, value]) => {
-    metadata.append("p").text(key +" : "+value);
-    //metadata.append("p").text('${key}:${value}');
-
-
-
-
-*/
 // Read json
 
     var tableData = data;
-    //var columns = ["datetime", "city", "state", "country", "shape", "comments"];
-    //console.log(columns);
     console.log(tableData);
     var tbody = d3.select("tbody");
-
+// Create Createtable function
 function Createtable () {
     
     tableData.forEach((view) => {
@@ -44,15 +19,16 @@ function Createtable () {
     
     }); };
 //console.log(row)
-//Filter for the search
+
+// Call create table function
 Createtable();
-//var form = d3.select("form");
-//var button = d3.select("#filter-btn");
 
+//Filter for the search
 
-
+// Create button
 var button = d3.select("#filter-btn");
 
+// Action when the filter button is clicked
 button.on("click", function(buttonclick) {
     d3.event.preventDefault();
     tbody.html("");
@@ -73,10 +49,9 @@ button.on("click", function(buttonclick) {
     });
 });
 
+// Ceate resetbutton & reset the chart
 var resetbutton = d3.select("#reset-btn");
 resetbutton.on("click",function(){
     tbody.html("");
     Createtable();
 });
-
-

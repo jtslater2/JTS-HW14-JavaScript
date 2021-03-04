@@ -1,1 +1,3 @@
 # JTS-HW14-JavaScript
+
+Using JavaScript to create interactive websites for a Data Scientist is a core skill which we are asked to demonstrate in this week’s homework assignment. A basic html page is given to us and we are tasked to take information from our Alien sighting dataset and create an interactive chart listing the following columns: Date, City, State, Country, Shape, Duration and Comments. The filter is used in the date form to list the sightings that match the user’s input. A second button was added to reset the table when an invalid entry is given. 
